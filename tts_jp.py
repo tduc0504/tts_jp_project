@@ -16,13 +16,14 @@ if not selected:
     print("Không tìm thấy giọng Haruka/Ayumi, dùng giọng mặc định.")
 
 # Giảm tốc độ đọc
-engine.setProperty('rate', 130)  # mặc định ~200
+engine.setProperty('rate', 130)  # <200 là chậm hơn
 
-# Đọc file input.txt
-with open("input.txt", "r", encoding="utf-8") as f:
-    text = f.read()
+# Nhập văn bản từ người dùng
+text = input("Nhập văn bản tiếng Nhật muốn đọc: ")
 
-engine.save_to_file(text, "output.mp3")
+# Tạo file mp3
+output_file = "output.mp3"
+engine.save_to_file(text, output_file)
 engine.runAndWait()
 
-print("Hoàn thành! Kiểm tra file output.mp3")
+print(f"Hoàn thành! File âm thanh đã được tạo: {output_file}")
